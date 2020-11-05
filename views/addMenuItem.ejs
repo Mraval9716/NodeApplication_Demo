@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+    <%- include('layouts/header'); -%>
+    
+    <body>
+        <header>
+            <p><h1>Add an item on the menu</h1></p>
+        </header>
+    
+        <main>
+            <div class="container" class="form-box error" data-errormsg="">
+                <form name="RegisterForm" id="RegisterForm" action="" method="post">
+                    <div>
+                    <label for="inputName">Name</label>
+                    <input type="text" id="inputName" name="inputName"  autofocus tabindex="1"/>
+                    </div>
+                  
+                    <div>
+                    <label for="inputDescription">Description</label>
+                    <input type="text" id="inputDescription" name="inputDescription" autofocus tabindex="2"/>
+                    </div>  
+                     
+                    <div>
+                    <label for="inputItemPrice">Item Price</label>
+                    <input type="number" id="inputItemPrice" name="inputItemPrice"  autofocus tabindex="3"/>
+                    </div>
+                 
+                    <div>
+                        <label for="inputAvailable">Available</label>
+                        <select id="inputAvailable" name="inputAvailable" tabindex="4">
+                        <option value="0">Available</option>
+                        <option value="1">Not Available</option>
+                        </select>
+                    </div>
+    
+                    <input type="submit" value="Submit" id="newItemSubmit">
+                </form>
+            </div>
+    
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+            <script src="addMenuItemValidate.js"></script>
+        </main>
+    
+    </body>
+    </html>

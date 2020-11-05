@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="styles/registration.css">
+    <link rel="Fav Icon" href="images/panda2.png">
+</head>
+<header>
+    <h1>Register for an account</h1>
+    <p>Are you a restaurant business owner? Sign up to create an online menu for your restaurant to allow
+        your<br><br>customers to place online orders for food.</p>
+</header>
+<body>
+    <% 
+    var restaurantNameErrors = '';
+    var emailErrors = '';
+    var phoneErrors = '';
+    var addressErrors = '';
+    var passwordErrors = '';
+    var confirmPasswordErrors = '';
+    
+    if(typeof errors !== 'undefined' && errors.length > 0) { 
+        for(var error of errors){ 
+            if(error.param === 'res_name'){
+                restaurantNameErrors += error.msg+ "<br/>" ;
+            }
+            if(error.param === 'email'){
+                emailErrors += error.msg+ "<br/>" ;
+            }
+            if(error.param === 'phone_no'){
+                phoneErrors += error.msg+ "<br/>" ;
+            }
+            if(error.param === 'res_address'){
+                addressErrors += error.msg+ "<br/>" ;
+            }
+            if(error.param === 'password'){
+                passwordErrors += error.msg+ "<br/>" ;
+            }
+            if(error.param === 'confirm_password'){
+                confirmPasswordErrors += error.msg+ "<br/>" ;
+            }
+           
+        }
+    } 
+    %>
+    <form class="form-horizontal" action='' method="POST">
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label" for="RestaurantName">Restaurant Name*</label>
+                <div class="controls">
+                    <input type="text" id="res_name" name="res_name" placeholder="XYZ Restaurant" class="input-xlarge">
+                    <% if(restaurantNameErrors != '') { %> <label class="lblerrorMsg" ><%-restaurantNameErrors %></label> <% } %>
+                </div>
+            </div>
+    
+            <div class="control-group">
+                <label class="control-label" for="Address">Restaurant Address*</label>
+                <div class="controls">
+                    <input type="text" id="res_address" name="res_address" placeholder="" class="input-xlarge">
+                    <% if(addressErrors != '') { %> <label class="lblerrorMsg" ><%-addressErrors %></label> <% } %>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="phone">Phone No*</label>
+                <div class="controls">
+                    <input type="tel" id="phone_no" name="phone_no" placeholder="999-999-9999" class="input-xlarge">
+                    <% if(phoneErrors != '') { %> <label class="lblerrorMsg" ><%-phoneErrors %></label> <% } %>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="email">Email Address*</label>
+                <div class="controls">
+                    <input type="email" id="email" name="email" placeholder="abc@avx.com" class="input-xlarge">
+                    <% if(emailErrors != '') { %> <label class="lblerrorMsg" ><%-emailErrors %></label> <% } %>
+                </div>
+            </div>
+    
+            <div class="control-group">
+                <label class="control-label" for="password" >Password*</label>
+                <div class="controls">
+                    <input type="password" id="password" name="password" placeholder="Password should be having 8 or more characters" class="input-xlarge">
+                    <% if(passwordErrors != '') { %> <label class="lblerrorMsg" ><%-passwordErrors %></label> <% } %>
+                </div>
+            </div>
+    
+            <div class="control-group">
+                <label class="control-label" for="confirm_password">Confirm Password*</label>
+                <div class="controls">
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password should be having 8 or more characters" class="input-xlarge">
+                        <% if(confirmPasswordErrors != '') { %> <label class="lblerrorMsg" ><%-confirmPasswordErrors %></label> <% } %>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="description">Description</label>
+                <div class="controls">
+                    <input type="text" id="description" name="description" placeholder=""
+                        class="input-xlarge">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="cuisine">Cuisine</label>
+                <div class="controls">
+                    <select name="cuisine" id="cuisine">
+                        <option value="chinese">Chinese</option>
+                        <option value="italian">Italian</option>
+                        <option value="thai">Thai</option>
+                        <option value="indian">Indian</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <!-- Button -->
+                <div class="controls">
+                    <button class="btn btn-success">Register</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+   
+</body>
+</html>
